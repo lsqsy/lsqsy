@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script type="text/javascript" src="../js/day.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h2>显示格式化后的时间</h2>
+        <h3>现在是:{{time | timef()}}</h3>
+    </div>
+    <script>
+        Vue.config.productionTip = false
+        const vm=new Vue({
+           el:'#root',
+           data:{
+               time:1621561111111
+           },
+           methods:{},
+           computed:{
+              
+           },
+           mounted(){
+            
+           },
+           filters:{
+                timef(value,str = 'YYYY_MM_DD'){
+                    return dayjs(value).format(str).slice(0,1)
+                }
+           },
+           watch:{}
+        });
+    </script>
+</body>
+
+</html>
